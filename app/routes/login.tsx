@@ -1,5 +1,5 @@
 // app/routes/login.tsx
-import type { ActionFunctionArgs, LoaderFunctionArgs } from '@remix-run/node';
+import { type ActionFunctionArgs, type LoaderFunctionArgs, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
 
@@ -33,6 +33,8 @@ export default function Screen() {
 // Second, we need to export an action function, here we will use the
 // `authenticator.authenticate method`
 export async function action({ request }: ActionFunctionArgs) {
+  throw redirect("/tototo");
+
   // we call the method with the name of the strategy we want to use and the
   // request object, optionally we pass an object with the URLs we want the user
   // to be redirected to after a success or a failure
